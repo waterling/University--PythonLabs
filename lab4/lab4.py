@@ -54,7 +54,7 @@ def mem_dict(filename):
     start_key = list(similar.keys())[random.randint(0, words_len)]
     result = start_key + ' '
     left_list = similar[start_key]
-    while words_len > 0:
+    while words_len > 0 and len(result) < 1000:
         curr_key = left_list[random.randint(0, len(left_list) - 1)]
         left_list = similar[curr_key]
         result += curr_key
