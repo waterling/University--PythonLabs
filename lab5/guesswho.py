@@ -76,24 +76,24 @@ import json
 class HTTPServerQuiz(BaseHTTPRequestHandler):
     # GET
     def do_GET(self):
-        smth = sys.argv[1]
-
         names = read_names(sys.argv[1])
 
         import random
-        index = random.randint(0, 99)
 
-        print(index)
+        variants = []
+        for i in range(0, 3):
+            variant = names[random.randint(0, 99)]
+            variants.append(variant[:variant.find('\n')])
 
-        name = names[index]
-        name_without_eol = name[:name.find('\n')]
-        photo = self.get_photo(name_without_eol)[0]
+        answer = variants[random.randint(0, 2)]
+        photo = self.get_photo(answer)[0]
 
-        print(name_without_eol + ' - ' + photo)
+        print(answer + ' - ' + photo)
 
         response = {
             'photo': photo,
-            'answer': name_without_eol
+            'answer': answer,
+            'variants': variants
         }
 
         self.send_response(200)
@@ -112,8 +112,7 @@ class HTTPServerQuiz(BaseHTTPRequestHandler):
         tree = html.fromstring(html_content)
 
         import random
-        ph = tree.xpath('(.//*[@target="_blank"]/img)[' + str(random.randint(1, 10)) + ']/@src')
-        return ph
+        return tree.xpath('(.//*[@target="_blank"]/img)[' + str(random.randint(1, 10)) + ']/@src')
 
 
 def name_foto_quiz():
