@@ -40,7 +40,10 @@ const App: React.FC = () => {
     };
 
     const handleChooseAnswer = (name: string) => {
-        !result && setResult(name);
+        if (result) {
+            return;
+        }
+        setResult(name);
         handleUpdateGameInfo().catch();
     };
 
