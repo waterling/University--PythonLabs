@@ -1,0 +1,71 @@
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    height: 45vmin;
+    border-radius: 1rem;
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.radio-groups {
+    margin-top: 2rem;
+}
+.radio-groups__disabled .radio-groups__item:hover {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.radio-groups__item {
+    height: 5rem;
+    background: grey;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1rem 1rem 2rem;
+    min-width: 40rem;
+    border-radius: 2rem;
+    opacity: 0.7;
+}
+
+.radio-groups__item:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.radio-groups__item[data-result='lose'] {
+    background: red;
+}
+
+.radio-groups__item[data-result='win'] {
+    background: green;
+}
+
+.radio-groups__item[data-result='win'], .radio-groups__item[data-result='lose'] {
+  color: white;
+  cursor: wait;
+}
+
+
+.radio-groups__item > label {
+    font-size: 2rem;
+}
+
+.App-link {
+    color: #09d3ac;
+}

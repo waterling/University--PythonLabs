@@ -45,7 +45,6 @@ class TableHTMLParser(HTMLParser):
     currentRank = 0
 
     def handle_starttag(self, tag, attrs):
-
         if tag == TAG.html.name:
             self.status = STATUS.HTML_START
 

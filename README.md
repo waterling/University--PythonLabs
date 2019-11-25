@@ -32,5 +32,12 @@
 Вход: names.txt, Выход: клиент-серверное приложение, позволяющее угадывать знаменитостей
 
 #### Запуск
-`python3 lab5/guesswho lab5/names.txt`
+
+Backend: `python3 lab5/guesswho.py lab5/names.txt`
+- port: `8081`
+
+Frontend (develop version): `npm i && npm start`
+- port: `3000`
+
+Frontend (build version): `npm i && npm build` <- соодержимое будет в `lab5/front/build`
 
