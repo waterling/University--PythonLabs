@@ -70,6 +70,8 @@ def read_names(filename):
 
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from urllib.parse import parse_qs
+from urllib.parse import urlparse
 import json
 
 
@@ -78,11 +80,26 @@ class HTTPServerQuiz(BaseHTTPRequestHandler):
     def do_GET(self):
         names = read_names(sys.argv[1])
 
+        params = parse_qs(urlparse(self.path).query)
+
+        if 'level' not in params:
+            #do not act
+            return
+
+        level = int(params['level'][0])
+
+        if level == 1:
+            max_num = 9
+        elif level == 2:
+            max_num = 49
+        elif level == 3:
+            max_num = 99
+
         import random
 
         variants = []
         for i in range(0, 3):
-            variant = names[random.randint(0, 99)]
+            variant = names[random.randint(0, max_num)]
             variants.append(variant[:variant.find('\n')])
 
         answer = variants[random.randint(0, 2)]
