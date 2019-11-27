@@ -1,0 +1,169 @@
+.App {
+    text-align: center;
+    width: 90vw;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.App input:focus, .App input:active, .App button:focus, .App button:active {
+    outline: red auto 5px;
+}
+
+.App-logo {
+    height: 45vmin;
+    border-radius: 1rem;
+}
+
+.app-main {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: #282c34;
+}
+
+.left {
+    margin-right: 2rem;
+}
+
+.left-menu {
+    display: flex;
+    flex-direction: column;
+    background: #282c34;
+    width: 20rem;
+    height: 10rem;
+    color: white;
+}
+
+.left-menu__item {
+    display: flex;
+    padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.left-menu__item > label {
+    min-width: 3rem;
+    text-align: left;
+}
+
+.left-menu__item > input {
+    width: 100%;
+}
+
+.left-menu__item-button {
+    width: 100%;
+    border: 0;
+    background: #09d3ac;
+    padding: 0.5rem
+}
+
+.left-menu__item-button:hover {
+    opacity: 0.95;
+    cursor: pointer;
+}
+
+.left-menu__item-button:active {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.left-menu__item-button:focus {
+}
+
+.left-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    background: #282c34;
+    width: 20rem;
+    color: white;
+}
+
+.left-list__button {
+    background: unset;
+    border: none;
+    color: #09d3ac;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.left-list .left-list__button:focus, .left-list .left-list__button:focus {
+    outline: none;
+}
+.left-list__button[data-loading="true"] {
+    animation:spin 1s linear infinite;
+}
+
+.left-list__item {
+    display: flex;
+    cursor: pointer;
+    color: white;
+    padding: 0.5rem;
+    align-items: center;
+}
+.left-list__item > span {
+    font-size: 1.5rem;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.left-list__item[data-selected="true"] {
+    color: dodgerblue;
+}
+
+.left-list__item[data-selected="true"] > span:hover {
+    opacity: 1;
+}
+
+.left-list__item > span:hover {
+    color: dodgerblue;
+    opacity: 0.7;
+}
+
+.news {
+    display: flex;
+    width: 50vw;
+}
+
+.news-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.news-list__item {
+    width: 100%;
+    padding: 3rem 1rem 1rem 5rem;
+    background: #282c34;
+    color: white;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.news-list__item a {
+    color: #09d3ac;
+    text-decoration: none;
+}
+.news-list__item img {
+    width: 100%;
+}
+
+.news-list__pagination {
+    display: flex;
+}
+.news-list__pagination-item {
+    background: unset;
+    border: none;
+    font-size: 1.5rem;
+    color: #282c34;
+    cursor: pointer;
+}
+.news-list__pagination-item[data-current="true"] {
+    color: #09d3ac;
+    pointer-events: none;
+}
+
+@keyframes spin { 100% { transform:rotate(360deg); } }
